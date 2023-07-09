@@ -53,6 +53,8 @@ var Dhika = map[string]bool{
 }
 
 func main() {
+	fmt.Println("Initializing Webhook saweria")
+
 	r := gin.Default()
 	r.POST("/webhook", func(ctx *gin.Context) {
 		var payload WebhookReq
@@ -72,10 +74,8 @@ func main() {
 
 		var howManyTimesWwillClicked int = 10
 		time.Sleep(5 * time.Second)
-		fmt.Println("Ini ammoutnya", payload.AmountRaw)
 		switch payload.AmountRaw {
 		case 10000:
-			fmt.Println("Jaln nih")
 			kb.SetKeys(keybd_event.VK_SPACE)
 		case 15000:
 			kb.SetKeys(keybd_event.VK_W)
